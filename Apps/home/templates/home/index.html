@@ -1,0 +1,153 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tritone Studio - Home</title>
+    <!-- Google Fonts para uma tipografia divertida -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <!-- Menu de Navegação -->
+    <!-- <nav class="navbar">
+        <div class="logo">Tritone Studio</div>
+        <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#jogos">Jogos</a></li>
+            <li><a href="#estudio">Estúdio</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav> -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#home">Tritone Studio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-white" href="#home">Início</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#jogos">Jogos</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#estudio">Estúdio</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#contato">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Seção Início -->
+    <section id="home" class="section">
+        <div class="containerNormal">
+            <h1>Bem-vindo ao Tritone Studio</h1>
+
+            <p>
+                Somos uma desenvolvedora de jogos apaixonada por criar experiências únicas e imersivas. Nosso estúdio
+                une criatividade, tecnologia e dedicação para oferecer jogos que encantam e desafiam os jogadores.
+            </p>
+        </div>
+    </section>
+
+    <!-- Seção de Jogos - Previews -->
+    <section id="jogos" class="section">
+        <div class="containerNormal">
+            <h2>Nossos Jogos</h2>
+            <div class="game">
+                <h3>Drunk Wiz</h3>
+                <p>
+                    Seja um mago que bebeu muito e precisa chegar ao casamento o mais rápido possível.
+                </p>
+                <a href="DrunkWiz.html" class="detail-btn">Mais Detalhes</a>
+                <a href="#detalhes-jogo1" class="detail-btn">Jogar</a>
+            </div>
+            <div class="game">
+                <h3>Launch de Bottle</h3>
+                <p>
+                    Jogue a garrafa o mais longe que conseguir.
+                </p>
+                <a href="#detalhes-jogo2" class="detail-btn">Mais Detalhes</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Detalhes do Jogo 1 com o botão de jogar (o iframe será inserido via JavaScript) -->
+    <section id="detalhes-jogo1" class="section game-detail">
+        <div class="containerNormal">
+            <h2>Drunk Wiz</h2>
+            <p>
+                Chegue ao seu casamento menino
+            </p>
+            <div class="game-play">
+                <!-- O containerNormal possui o atributo data-src com o URL do iframe -->
+                <div class="iframe-containerNormal" data-src="https://html-classic.itch.zone/html/12536536/jooogo/index.html">
+                    <div class="play-overlay">
+                        <button class="play-button">Jogar</button>
+                    </div>
+                </div>
+            </div>
+            <a href="#jogos" class="back-btn">Voltar para Jogos</a>
+        </div>
+    </section>
+
+    <!-- Seção de Detalhes do Jogo 2 -->
+    <section id="detalhes-jogo2" class="section game-detail">
+        <div class="containerNormal">
+            <h2>Launch The Bottle</h2>
+            <p>
+                Jogue a garrafa longe menino!!
+            </p>
+            <div class="game-play">
+                <div class="iframe-containerNormal"
+                    data-src="https://html-classic.itch.zone/html/11926430/Launch%20The%20Bottle%20-WebGL/index.html">
+                    <div class="play-overlay">
+                        <button class="play-button">Jogar</button>
+                    </div>
+                </div>
+            </div>
+            <a href="#jogos" class="back-btn">Voltar para Jogos</a>
+        </div>
+    </section>
+
+    <!-- Seção Estúdio -->
+    <section id="estudio" class="section">
+        <div class="containerNormal">
+            <h2>Sobre o Estúdio</h2>
+            <p>
+                Nosso time é formado por profissionais apaixonados por games. Trabalhamos juntos para transformar ideias
+                inovadoras em jogos que marcam gerações.
+            </p>
+        </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section id="contato" class="section">
+        <div class="containerNormal">
+            <h2>Envie Suas Sugestões e Críticas</h2>
+            <form name="contact"  method="POST" netlify>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="{% static 'home/js/script.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
