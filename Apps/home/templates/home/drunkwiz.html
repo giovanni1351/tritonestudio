@@ -1,0 +1,232 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tritone Studio - Drunk Wiz</title>
+    <!-- Bootstrap CSS (versão 5) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS CSS para animações -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <link rel="stylesheet" href="{% static 'home/css/DrunkWiz.css' %}" />
+    <!-- Estilos personalizados -->
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" data-aos="fade-down">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}">Tritone Studio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">Sobre o Jogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Recursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#screenshots">Screenshots</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#jogar">Jogar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Seção de Cabeçalho -->
+    <section >
+        <header class="header-section text-center d-flex align-items-center" data-aos="fade-in">
+            <div class="container">
+                <h1 class="display-4">Drunk Wiz</h1>
+                <p class="lead">Uma experiência épica desenvolvida pela Tritone Studio</p>
+                <a href="#sobre" class="btn btn-primary btn-lg mt-4">Saiba Mais</a>
+            </div>
+        </header>
+    </section>
+
+    <!-- Seção Sobre o Jogo -->
+    <section id="sobre" class="about-section" data-aos="fade-up">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="{% static 'home/images/DrunkWiz.jpeg' %}" class="img-fluid rounded shadow" alt="Imagem do Jogo">
+                </div>
+                <div class="col-lg-6">
+                    <h2>Sobre o Jogo</h2>
+                    <p>
+                        Desenvolvido com paixão e criatividade, <strong>Drunk Wiz</strong> é um jogo
+                        revolucionário que mistura ação, aventura e mistério. Explore reinos encantados, enfrente
+                        desafios épicos e descubra segredos surpreendentes em um mundo vibrante e imersivo.
+                    </p>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Gráficos de alta qualidade</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Jogabilidade inovadora</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Trilha sonora original</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i> Suporte multiplataforma</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Recursos -->
+    <section id="features" class="features-section" data-aos="fade-up">
+        <div class="container">
+            <h2 class="text-center mb-5">Recursos Incríveis</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Gráficos de Alta Definição</h5>
+                            <p class="card-text">
+                                Desfrute de visuais impressionantes com detalhes meticulosos e animações fluidas que
+                                elevam a experiência do jogo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Jogabilidade Dinâmica</h5>
+                            <p class="card-text">
+                                Controle intuitivo e mecânicas inovadoras que proporcionam uma experiência única e
+                                desafiadora.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Trilha Sonora Original</h5>
+                            <p class="card-text">
+                                Uma trilha sonora envolvente que complementa perfeitamente cada momento de ação e emoção
+                                do jogo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Screenshots -->
+    <section id="screenshots" data-aos="fade-up">
+        <div class="container">
+            <h2 class="text-center mb-5">Screenshots do Jogo</h2>
+            <div id="carouselScreenshots" class="carousel slide screenshot-carousel" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselScreenshots" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselScreenshots" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselScreenshots" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselScreenshots" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{% static 'home/images/ChaveNoInvDrunWiz.png' %}" class="d-block w-100" alt="Screenshot 1">
+                    </div>
+                    <div class="carousel-item active">
+                        <img src="{% static 'home/images/DrunkWiz.jpeg' %}" class="d-block w-100" alt="Screenshot 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'home/images/PortaoDrunkWiz.png' %}" class="d-block w-100" alt="Screenshot 3">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'home/images/TelaFinalDrunkWiz.png' %}" class="d-block w-100" alt="Screenshot 4">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselScreenshots"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselScreenshots"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Seção de jogar -->
+    <section id="jogar" class="features-section" data-aos="fade-up">
+
+        <div class="game-play">
+            <!-- O containerNormal possui o atributo data-src com o URL do iframe -->
+            <div class="iframe-containerNormal"
+                data-src="https://html-classic.itch.zone/html/12536536/jooogo/index.html">
+                <div class="play-overlay">
+                    <button class="play-button">Jogar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Seção de Contato -->
+    <section id="contato" class="contact-section" data-aos="fade-up">
+        <div class="container">
+            <h2 class="text-center mb-5">Entre em Contato</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <form name="contact2"  method="POST" netlify>
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="nome" placeholder="Seu nome">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="seuemail@exemplo.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="mensagem" class="form-label">Mensagem</label>
+                            <textarea class="form-control" id="mensagem" rows="5"
+                                placeholder="Escreva sua mensagem aqui..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center" data-aos="fade-in">
+        <div class="container">
+            <p class="mb-2">&copy; 2025 Tritone Studio. Todos os direitos reservados.</p>
+            <div>
+                <a href="#" class="mx-2">Facebook</a>
+                <a href="#" class="mx-2">Twitter</a>
+                <a href="#" class="mx-2">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle (inclui Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS para animações -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="{% static 'home/js/DrunkWiz.js' %}"></script>
+</body>
+
+</html>

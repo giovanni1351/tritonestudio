@@ -1,0 +1,151 @@
+
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+section {
+    scroll-snap-align: start;
+    min-height: 100vh;
+    padding: 60px 0;
+}
+/* Seção de cabeçalho com imagem de fundo */
+.header-section {
+    background: url('img/DrunkWiz.jpeg') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.header-section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+
+/* Seção de Recursos */
+.features-section {
+    background-color: #f8f9fa;
+}
+
+/* Carousel de screenshots */
+.screenshot-carousel img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Seção de Contato */
+.contact-section {
+    background-color: #e9ecef;
+}
+
+/* Footer */
+.footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 30px 0;
+}
+
+.footer a {
+    color: #ffc107;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.game {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.game:hover {
+    transform: translateY(-5px);
+}
+
+.game a.detail-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: #e74c3c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.game a.detail-btn:hover {
+    background: #c0392b;
+}
+
+.game-detail .containerNormal {
+    max-width: 1200px;
+    width: 95%;
+    padding: 60px;
+}
+
+.game-play p {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+#jogar{
+    scroll-snap-align: start;
+    min-height: 100vh;
+    padding: 60px 0;
+}
+.game-play {
+    height: 100%;
+    min-height: 100vh;
+
+    width: 100%;
+    padding: 0;
+    display: flex;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.play-button {
+    font-family: 'Bangers', cursive;
+    font-size: 2em;
+    color: #fff;
+    background: #e74c3c;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.play-button:hover {
+    background: #c0392b;
+}
+
+.iframe-containerNormal {
+    flex:1;
+    position: relative;
+    min-height: 100vh;
+    background: #000;
+
+}
+
+
