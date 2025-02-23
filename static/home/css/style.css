@@ -307,7 +307,13 @@ form button:hover {
 #detalhes-jogo1::before {
     background-image: url("static/home/images/DrunkWiz.jpeg");
 }
-
+.form-control {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 
 #home.active-bg::before,
 #detalhes-jogo2.active-bg::before,
