@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-rc^*w^w&6g9_(uvx#6s*bnt!w)l0rdi%!l7mv#y%uc&x%wo5pk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://api.tritonestudio.com.br","http://api.tritonestudio.com.br"]
+ALLOWED_HOSTS = ["https://api.tritonestudio.com.br","http://api.tritonestudio.com.br","api.tritonestudio.com.br"]
 CSRF_TRUSTED_ORIGINS = ["https://api.tritonestudio.com.br","http://api.tritonestudio.com.br"]
 
 # FORM SUBMISSION
