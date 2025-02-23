@@ -14,4 +14,12 @@ def index(request):
 
 
 def drunkwiz(request):
-    return render(request,'home/drunkwiz.html')
+    if request.method == 'POST':
+        form = ReportsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Formulário enviado com sucesso!')
+            return redirect('Drunk Wiz')  # Substitua pelo nome da URL desejada
+    else:
+        form = ReportsForm()
+    return render(request,'home/drunkwiz.html',{'form': form})

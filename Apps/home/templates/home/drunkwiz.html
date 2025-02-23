@@ -189,22 +189,18 @@
             <h2 class="text-center mb-5">Entre em Contato</h2>
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <form name="contact2"  method="POST" netlify>
-                        <div class="mb-3">
-                            <label for="nome" class="form-label">Nome</label>
-                            <input type="text" class="form-control" id="nome" placeholder="Seu nome">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="seuemail@exemplo.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="mensagem" class="form-label">Mensagem</label>
-                            <textarea class="form-control" id="mensagem" rows="5"
-                                placeholder="Escreva sua mensagem aqui..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Enviar Mensagem</button>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary w-100">Enviar</button>
                     </form>
+                    {% if messages %}
+                        <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
                 </div>
             </div>
         </div>
