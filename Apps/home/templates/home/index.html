@@ -16,36 +16,10 @@
 </head>
 
 <body>
-    <!-- Menu de Navegação -->
-    <!-- <nav class="navbar">
-        <div class="logo">Tritone Studio</div>
-        <ul>
-            <li><a href="#home">Início</a></li>
-            <li><a href="#jogos">Jogos</a></li>
-            <li><a href="#estudio">Estúdio</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
-    </nav> -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
-        <div class="container">
-            <a class="navbar-brand text-white" href="#home">Tritone Studio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link text-white" href="#home">Início</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#jogos">Jogos</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#estudio">Estúdio</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#contato">Contato</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    {% include 'home/includes/Nav.html' %}
 
     <!-- Seção Início -->
-    <section id="home" class="section">
+    <section id="home" class="section" data-title="Inicio">
         <div class="containerNormal">
             <h1>Bem-vindo ao Tritone Studio</h1>
 
@@ -57,7 +31,7 @@
     </section>
 
     <!-- Seção de Jogos - Previews -->
-    <section id="jogos" class="section">
+    <section id="jogos" class="section" data-title="Jogos">
         <div class="containerNormal">
             <h2>Nossos Jogos</h2>
             <div class="game">
@@ -73,7 +47,7 @@
                 <p>
                     Jogue a garrafa o mais longe que conseguir.
                 </p>
-                <a href="#detalhes-jogo2" class="detail-btn">Mais Detalhes</a>
+                <a href="#detalhes-jogo2" class="detail-btn">Jogar</a>
             </div>
         </div>
     </section>
@@ -117,7 +91,7 @@
     </section>
 
     <!-- Seção Estúdio -->
-    <section id="estudio" class="section">
+    <section id="estudio" class="section" data-title="Sobre o Estudio">
         <div class="containerNormal">
             <h2>Sobre o Estúdio</h2>
             <p>
@@ -127,24 +101,27 @@
         </div>
     </section>
 
-    <!-- Seção Contato -->
-    <section id="contato" class="section">
-        <div class="containerNormal">
-            <h2>Envie Suas Sugestões e Críticas</h2>
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Enviar</button>
-            </form>
-            {% if messages %}
-                <ul>
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-                </ul>
-            {% endif %}
-        </div>
-    </section>
+{#    <!-- Seção Contato -->#}
+{#    <section id="contato" class="section">#}
+{#        <div class="containerNormal">#}
+{#            <h2>Envie Suas Sugestões e Críticas</h2>#}
+{#            <form method="post">#}
+{#                {% csrf_token %}#}
+{#                {{ form.as_p }}#}
+{#                <button type="submit">Enviar</button>#}
+{#            </form>#}
+{#            {% if messages %}#}
+{#                <ul>#}
+{#                {% for message in messages %}#}
+{#                    <li>{{ message }}</li>#}
+{#                {% endfor %}#}
+{#                </ul>#}
+{#            {% endif %}#}
+{#        </div>#}
+{#    </section>#}
+    {% include 'home/includes/DrunkWiz/Contato.html' %}
+
+    {% include 'home/includes/footer.html' %}
 
     <script src="{% static 'home/js/script.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
