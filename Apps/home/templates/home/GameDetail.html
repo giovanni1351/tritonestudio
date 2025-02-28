@@ -1,0 +1,81 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Game Detail Section -->
+<section class="game-detail-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Game Slider -->
+                <div id="gameDetailCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for image in game.images.all %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ image.alt_text }}">
+                            </div>
+                        {% empty %}
+                            <div class="carousel-item active">
+                                <img src="{% static 'home/images/placeholder.jpg' %}" class="d-block w-100" alt="{{ game.title }}">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% if game.images.count > 1 %}
+                    <button class="carousel-control-prev" type="button" data-bs-target="#gameDetailCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#gameDetailCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    {% endif %}
+                </div>
+
+                <!-- Image Thumbnails -->
+                {% if game.images.count > 1 %}
+                <div class="row mb-4">
+                    {% for image in game.images.all %}
+                    <div class="col-3 mb-3">
+                        <img src="{{ image.image.url }}" class="img-thumbnail" alt="{{ image.alt_text }}" 
+                             onclick="document.querySelector('#gameDetailCarousel .carousel-item:nth-child({{ forloop.counter }})').classList.add('active')">
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            
+            <div class="col-lg-4">
+                <h1 class="game-title mb-4">{{ game.title }}</h1>
+                
+                <div class="game-info mb-4">
+                    {% if game.in_development %}
+                    <span class="badge bg-warning mb-2">Em Desenvolvimento</span>
+                    {% else %}
+                    <span class="badge bg-success mb-2">Lançado</span>
+                    {% endif %}
+                    
+                    {% if game.release_year %}
+                    <p><strong>Ano de lançamento:</strong> {{ game.release_year }}</p>
+                    {% endif %}
+                </div>
+                
+                <div class="game-description mb-4">
+                    <h3>Sobre o Jogo</h3>
+                    <p>{{ game.description }}</p>
+                </div>
+                
+                <div class="game-actions">
+                    {% if game.download_url %}
+                    <a href="{{ game.download_url }}" class="btn btn-primary btn-lg mb-2 w-100">Download</a>
+                    {% elif game.in_development %}
+                    <button class="btn btn-secondary btn-lg mb-2 w-100" disabled>Em breve</button>
+                    {% endif %}
+                    
+                    <a href="{% url 'home' %}#games" class="btn btn-outline-secondary mb-2 w-100">Voltar para Jogos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

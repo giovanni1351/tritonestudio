@@ -1,0 +1,57 @@
+{% load static %}
+
+{% for game in games %}
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="game-card">
+        <div id="gameCarousel{{ game.id }}" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for image in game.images.all %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ image.alt_text }}">
+                    </div>
+                {% empty %}
+                    <div class="carousel-item active">
+                        <img src="{% static 'home/images/placeholder.jpg' %}" class="d-block w-100" alt="{{ game.title }}">
+                    </div>
+                {% endfor %}
+            </div>
+            {% if game.images.count > 1 %}
+            <button class="carousel-control-prev" type="button" data-bs-target="#gameCarousel{{ game.id }}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#gameCarousel{{ game.id }}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            {% endif %}
+        </div>
+        <div class="card-body">
+            <h3 class="game-title">{{ game.title }}</h3>
+            <p class="card-text">{{ game.description }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    {% if game.details_url %}
+                    <a href="{{ game.details_url }}" class="btn btn-tritone">Detalhes</a>
+                    {% else %}
+                    <a href="{% url 'game_detail' slug=game.slug %}" class="btn btn-tritone">Detalhes</a>
+                    {% endif %}
+
+                    {% if game.download_url %}
+                    <a href="{{ game.download_url }}" class="btn btn-outline-secondary">Download</a>
+                    {% elif game.in_development %}
+                    <a href="#" class="btn btn-outline-secondary">Em breve</a>
+                    {% endif %}
+                </div>
+                <small class="text-muted">
+                    {% if game.in_development %}
+                    Em desenvolvimento
+                    {% elif game.release_year %}
+                    Lançamento: {{ game.release_year }}
+                    {% endif %}
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}

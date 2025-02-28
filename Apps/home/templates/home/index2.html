@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tritone Studio - Game Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="{% static 'home/css/style2.css' %}" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    {% include 'home/includes/Nav.html' %}
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section" data-title="Home">
+        <div class="hero-bg"></div>
+        <div class="container hero-content text-center">
+            <h1 class="display-4 fw-bold mb-4">Bem-vindo à Tritone Studio</h1>
+            <h2 class="h3 mb-5">Criando experiências de jogo inesquecíveis</h2>
+            <a href="#games" class="btn btn-tritone btn-lg">Conheça nossos jogos</a>
+        </div>
+    </section>
+
+    <!-- Featured Games Section -->
+    <section id="games" class="py-5" data-title="Jogos">
+        <div class="container">
+            <h2 class="section-title">Nossos Jogos</h2>
+            <p class="mb-5">Confira nossos títulos mais recentes e embarque em aventuras inéditas.</p>
+
+            <div class="row">
+                <!-- Game Card 1 (Dinâmico) -->
+                {% include 'home/includes/Index/GameCards.html' %}
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section" data-title="Sobre">
+        <div class="container">
+            <h2 class="section-title">Sobre a Tritone Studio</h2>
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6">
+                    <p>A Tritone Studio é uma desenvolvedora independente de jogos fundada em 2020 por um grupo de amigos apaixonados por criar experiências memoráveis no mundo dos games.</p>
+                    <p>Nossa missão é desenvolver jogos inovadores que combinem narrativas envolventes, mecânicas únicas e visuais impressionantes para proporcionar momentos inesquecíveis aos jogadores.</p>
+                    <p>Trabalhamos com tecnologias de ponta e estamos sempre buscando expandir os limites do que é possível criar em termos de experiências interativas.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="/api/placeholder/600/400" alt="Escritório da Tritone Studio" class="img-fluid rounded shadow">
+                </div>
+            </div>
+
+            <h3 class="h4 mb-4">Nossa Equipe</h3>
+            <div class="row">
+                <!-- Team Member 1 (Dinâmico) -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member">
+                        <img src="/api/placeholder/150/150" alt="Membro da equipe" class="team-img">
+                        <h4 class="h5">Gabriel Santos</h4>
+                        <p class="text-muted">Diretor Criativo</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 (Dinâmico) -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member">
+                        <img src="/api/placeholder/150/150" alt="Membro da equipe" class="team-img">
+                        <h4 class="h5">Marina Alves</h4>
+                        <p class="text-muted">Diretora de Arte</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 (Dinâmico) -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member">
+                        <img src="/api/placeholder/150/150" alt="Membro da equipe" class="team-img">
+                        <h4 class="h5">Ricardo Oliveira</h4>
+                        <p class="text-muted">Lead Developer</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 (Dinâmico) -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member">
+                        <img src="/api/placeholder/150/150" alt="Membro da equipe" class="team-img">
+                        <h4 class="h5">Juliana Costa</h4>
+                        <p class="text-muted">Game Designer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section" data-title="Contato">
+        <div class="container">
+            <h2 class="section-title text-white">Entre em Contato</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <p>Av. Paulista, 1000, São Paulo - SP</p>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <p>contato@tritonestudio.com</p>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <p>+55 (11) 98765-4321</p>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="mb-3">Siga-nos</h4>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Assunto</label>
+                            <input type="text" class="form-control" id="subject">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Mensagem</label>
+                            <textarea class="form-control" id="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-tritone">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <h3 class="h5 mb-3">TRITONE STUDIO</h3>
+                    <p>Criando experiências de jogo inesquecíveis desde 2020.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p>&copy; 2025 Tritone Studio. Todos os direitos reservados.</p>
+                    <p><a href="#" class="text-white">Política de Privacidade</a> | <a href="#" class="text-white">Termos de Uso</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

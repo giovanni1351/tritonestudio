@@ -1,15 +1,15 @@
-// Animação das seções
-const sections = document.querySelectorAll('section');
-const observerOptions = { threshold: 0.2 };
-const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            obs.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-sections.forEach(section => observer.observe(section));
+// // Animação das seções
+// const sections = document.querySelectorAll('section');
+// const observerOptions = { threshold: 0.2 };
+// const observer = new IntersectionObserver((entries, obs) => {
+//     entries.forEach(entry => {
+//         if (entry.isIntersecting) {
+//             entry.target.classList.add('visible');
+//             obs.unobserve(entry.target);
+//         }
+//     });
+// }, observerOptions);
+// sections.forEach(section => observer.observe(section));
 
 // Função para criar o iframe
 function createIframe(container) {
@@ -58,33 +58,33 @@ document.querySelectorAll('.iframe-container').forEach(container => {
         toggleMute(iframe, true);
     });
 });
-document.addEventListener('DOMContentLoaded', function () {
-    // Configuração do Observer para o fade do background
-    const bgSections = document.querySelectorAll('#home, #detalhes-jogo2, #detalhes-jogo1');
-    const bgObserverOptions = {
-        threshold: 0.4 // Ajuste conforme necessário
-    };
-
-    const bgObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            entry.target.classList.toggle('active-bg', entry.isIntersecting);
-        });
-    }, bgObserverOptions);
-
-    bgSections.forEach(section => {
-        bgObserver.observe(section);
-    });
-
-    // Mantenha o observer existente para as animações das seções
-    const sections = document.querySelectorAll('section');
-    const observerOptions = { threshold: 0.2 };
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                obs.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    sections.forEach(section => observer.observe(section));
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//     // Configuração do Observer para o fade do background
+//     const bgSections = document.querySelectorAll('#home, #detalhes-jogo2, #detalhes-jogo1');
+//     const bgObserverOptions = {
+//         threshold: 0.4 // Ajuste conforme necessário
+//     };
+//
+//     const bgObserver = new IntersectionObserver((entries) => {
+//         entries.forEach(entry => {
+//             entry.target.classList.toggle('active-bg', entry.isIntersecting);
+//         });
+//     }, bgObserverOptions);
+//
+//     bgSections.forEach(section => {
+//         bgObserver.observe(section);
+//     });
+//
+//     // Mantenha o observer existente para as animações das seções
+//     const sections = document.querySelectorAll('section');
+//     const observerOptions = { threshold: 0.2 };
+//     const observer = new IntersectionObserver((entries, obs) => {
+//         entries.forEach(entry => {
+//             if (entry.isIntersecting) {
+//                 entry.target.classList.add('visible');
+//                 obs.unobserve(entry.target);
+//             }
+//         });
+//     }, observerOptions);
+//     sections.forEach(section => observer.observe(section));
+// });
