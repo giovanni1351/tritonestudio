@@ -2,42 +2,54 @@
 {% load static %}
 
 {% block content %}
-    <section id="jogar" class="features-section" data-aos="fade-up" data-title="Jogar">
-
-        <div class="game-play">
-            <!-- O containerNormal possui o atributo data-src com o URL do iframe -->
-            <div class="iframe-containerNormal"
-                data-src="{{ URL_JOGO }}">
-                <div class="play-overlay">
-                    <button class="play-button">Jogar</button>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section id="jogar" class="vh-100 d-flex align-items-center justify-content-center m-0 p-0">
+  <div class="iframe-container position-relative w-100" style="padding-top: 56.25%;" data-src="{{ URL_JOGO }}">
+    <div class="play-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+      <button class="play-button btn btn-primary btn-lg">Jogar</button>
+    </div>
+  </div>
+</section>
     <script>
-function createIframe(container) {
-    const iframeSrc = container.getAttribute('data-src');
-    const iframe = document.createElement('iframe');
-    iframe.setAttribute('src', iframeSrc);
-    iframe.setAttribute('width', '100%');
-    iframe.setAttribute('height', '800px');
-    container.appendChild(iframe);
-    container.iframe = iframe; // Armazena a referência do iframe
-}
-document.querySelectorAll('.iframe-containerNormal').forEach(container => {
-    // Evento de clique no overlay para criar o iframe
-    const overlay = container.querySelector('.play-overlay');
-    overlay.addEventListener('click', function () {
-        createIframe(container);
-        overlay.remove();
-    });
 
-    // Evento de mouseleave para focar no iframe
-    container.addEventListener('mouseleave', function () {
-        if (container.iframe) {
-            container.iframe.focus();
-        }
-    });
+function createIframe(container) {
+  const iframeSrc = container.getAttribute('data-src');
+  const iframe = document.createElement('iframe');
+  iframe.setAttribute('src', iframeSrc);
+  iframe.style.position = 'absolute';
+  iframe.style.top = '0';
+  iframe.style.left = '0';
+  iframe.style.width = '100%';
+  iframe.style.height = '100%';
+  iframe.style.border = 'none';
+  container.appendChild(iframe);
+}
+
+document.querySelectorAll('.iframe-container').forEach(container => {
+  const overlay = container.querySelector('.play-overlay');
+  overlay.addEventListener('click', function () {
+    createIframe(container);
+    overlay.remove(); // Remove o overlay após carregar o jogo
+  });
 });
     </script>
+    <style>
+    .iframe-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Aspect ratio 16:9 */
+}
+
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove bordas do iframe */
+}
+.play-button {
+      background-color: #FF6B00; /* Cor laranja */
+      color: white; /* Texto branco para contraste */
+}
+    </style>
 {% endblock %}
