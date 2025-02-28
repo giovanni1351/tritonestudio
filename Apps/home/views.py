@@ -36,16 +36,39 @@ def drunkwiz(request):
         form = ReportsForm()
     return render(request,'home/drunkwiz.html',{'form': form})
 
+def get_client_ip(request):
+    """
+    Função auxiliar para obter o endereço IP real do cliente,
+    mesmo quando atrás de proxies ou balanceadores de carga.
+    """
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        # Pega o primeiro IP na lista (o original)
+        ip = x_forwarded_for.split(',')[0].strip()
+    else:
+        # Sem proxy, pega o IP diretamente
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
+
+
+
+
 def home(request):
     games = Game.objects.all()
     if request.method == 'POST':
         form = ReportsForm(request.POST)
         if form.is_valid():
-            form.save()
+            # Não salva o objeto imediatamente para podermos modificá-lo
+            report = form.save(commit=False)
+            # Adiciona o endereço IP ao objeto
+            report.ip_address = get_client_ip(request)
+            # Agora salva o objeto com o endereço IP
+            report.save()
             messages.success(request, 'Formulário enviado com sucesso!')
             return redirect('home')  # Substitua pelo nome da URL desejada
     else:
         form = ReportsForm()
+
     context = {
         'games': games,
         'form': form,

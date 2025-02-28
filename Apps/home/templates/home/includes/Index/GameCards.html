@@ -42,6 +42,10 @@
                     {% elif game.in_development %}
                     <a href="#" class="btn btn-outline-secondary">Em breve</a>
                     {% endif %}
+                    {% if game.play_url %}
+                    <a href="{% url 'Jogar' id=game.id %}" class="btn btn-outline-secondary">Jogar</a>
+                    {% endif %}
+
                 </div>
                 <small class="text-muted">
                     {% if game.in_development %}

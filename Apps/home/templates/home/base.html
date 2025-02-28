@@ -42,50 +42,6 @@
 
     {% block extra_js %}{% endblock %}
     
-{#    <script>#}
-{#        // Scroll to top functionality#}
-{#        const scrollBtn = document.getElementById('scrollTop');#}
-{#        #}
-{#        window.onscroll = function() {#}
-{#            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {#}
-{#                scrollBtn.classList.add('visible');#}
-{#            } else {#}
-{#                scrollBtn.classList.remove('visible');#}
-{#            }#}
-{#        };#}
-{#        #}
-{#        scrollBtn.addEventListener('click', function() {#}
-{#            window.scrollTo({#}
-{#                top: 0,#}
-{#                behavior: 'smooth'#}
-{#            });#}
-{#        });#}
-{#        #}
-{#        // Active nav link based on section#}
-{#        const sections = document.querySelectorAll('section[data-title]');#}
-{#        const navLinks = document.querySelectorAll('.nav-link');#}
-{#        #}
-{#        if (sections.length > 0) {#}
-{#            window.addEventListener('scroll', () => {#}
-{#                let current = '';#}
-{#                #}
-{#                sections.forEach(section => {#}
-{#                    const sectionTop = section.offsetTop;#}
-{#                    const sectionHeight = section.clientHeight;#}
-{#                    #}
-{#                    if (pageYOffset >= sectionTop - 200) {#}
-{#                        current = section.getAttribute('data-title');#}
-{#                    }#}
-{#                });#}
-{#                #}
-{#                navLinks.forEach(link => {#}
-{#                    link.classList.remove('active');#}
-{#                    if (link.textContent === current) {#}
-{#                        link.classList.add('active');#}
-{#                    }#}
-{#                });#}
-{#            });#}
-{#        }#}
-{#    </script>#}
+
 </body>
 </html>

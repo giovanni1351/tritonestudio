@@ -8,9 +8,10 @@ admin.site.index_title = 'Tritonestudio Administration'
 
 class ReportsAdmin(admin.ModelAdmin):
 
-    list_display = ("email","name","mensagem",)
-    search_fields = ("email","name","mensagem",)
-    list_filter = ("email","name","mensagem",)
+    list_display = ("email","name","mensagem","created_at",)
+    search_fields = ("email","name","mensagem","created_at",)
+    list_filter = ("email","name","created_at",)
+
 
 
 admin.site.register(Reports,ReportsAdmin)

@@ -101,24 +101,7 @@
         </div>
     </section>
 
-{#    <!-- Seção Contato -->#}
-{#    <section id="contato" class="section">#}
-{#        <div class="containerNormal">#}
-{#            <h2>Envie Suas Sugestões e Críticas</h2>#}
-{#            <form method="post">#}
-{#                {% csrf_token %}#}
-{#                {{ form.as_p }}#}
-{#                <button type="submit">Enviar</button>#}
-{#            </form>#}
-{#            {% if messages %}#}
-{#                <ul>#}
-{#                {% for message in messages %}#}
-{#                    <li>{{ message }}</li>#}
-{#                {% endfor %}#}
-{#                </ul>#}
-{#            {% endif %}#}
-{#        </div>#}
-{#    </section>#}
+
     {% include 'home/includes/DrunkWiz/Contato.html' %}
 
     {% include 'home/includes/footer.html' %}
