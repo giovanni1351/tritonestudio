@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Tritone Studio - Game Developer{% endblock %}</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="{% static 'home/css/style2.css' %}" rel="stylesheet">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navbar -->
+    {% include 'home/includes/Nav.html' %}
+
+    {% block hero %}{% endblock %}
+
+    <!-- Main Content -->
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <h3 class="h5 mb-3">TRITONE STUDIO</h3>
+                    <p>Criando experiências de jogo inesquecíveis desde 2020.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p>&copy; 2025 Tritone Studio. Todos os direitos reservados.</p>
+                    <p><a href="#" class="text-white">Política de Privacidade</a> | <a href="#" class="text-white">Termos de Uso</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+
+    {% block extra_js %}{% endblock %}
+    
+{#    <script>#}
+{#        // Scroll to top functionality#}
+{#        const scrollBtn = document.getElementById('scrollTop');#}
+{#        #}
+{#        window.onscroll = function() {#}
+{#            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {#}
+{#                scrollBtn.classList.add('visible');#}
+{#            } else {#}
+{#                scrollBtn.classList.remove('visible');#}
+{#            }#}
+{#        };#}
+{#        #}
+{#        scrollBtn.addEventListener('click', function() {#}
+{#            window.scrollTo({#}
+{#                top: 0,#}
+{#                behavior: 'smooth'#}
+{#            });#}
+{#        });#}
+{#        #}
+{#        // Active nav link based on section#}
+{#        const sections = document.querySelectorAll('section[data-title]');#}
+{#        const navLinks = document.querySelectorAll('.nav-link');#}
+{#        #}
+{#        if (sections.length > 0) {#}
+{#            window.addEventListener('scroll', () => {#}
+{#                let current = '';#}
+{#                #}
+{#                sections.forEach(section => {#}
+{#                    const sectionTop = section.offsetTop;#}
+{#                    const sectionHeight = section.clientHeight;#}
+{#                    #}
+{#                    if (pageYOffset >= sectionTop - 200) {#}
+{#                        current = section.getAttribute('data-title');#}
+{#                    }#}
+{#                });#}
+{#                #}
+{#                navLinks.forEach(link => {#}
+{#                    link.classList.remove('active');#}
+{#                    if (link.textContent === current) {#}
+{#                        link.classList.add('active');#}
+{#                    }#}
+{#                });#}
+{#            });#}
+{#        }#}
+{#    </script>#}
+</body>
+</html>

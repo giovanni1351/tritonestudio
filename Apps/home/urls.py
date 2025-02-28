@@ -7,4 +7,5 @@ urlpatterns = [
     # path('DrunkWiz',views.drunkwiz, name="Drunk Wiz"),
     path('', views.home, name='home'),
     path('jogo/<slug:slug>/', views.game_detail, name='game_detail'),
+    path('jogar/<int:id>/', views.jogar, name='Jogar'),
 ]

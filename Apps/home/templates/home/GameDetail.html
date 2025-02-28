@@ -16,7 +16,7 @@
                             </div>
                         {% empty %}
                             <div class="carousel-item active">
-                                <img src="{% static 'home/images/placeholder.jpg' %}" class="d-block w-100" alt="{{ game.title }}">
+                                <img src="{% static 'home/images/1892536409027682304.jpg' %}" class="d-block w-100" alt="{{ game.title }}">
                             </div>
                         {% endfor %}
                     </div>
@@ -68,6 +68,9 @@
                 <div class="game-actions">
                     {% if game.download_url %}
                     <a href="{{ game.download_url }}" class="btn btn-primary btn-lg mb-2 w-100">Download</a>
+                    {% elif game.play_url %}
+                    <a href="{% url 'Jogar' id=game.id %}" class="btn btn-primary btn-lg mb-2 w-100">Jogar</a>
+
                     {% elif game.in_development %}
                     <button class="btn btn-secondary btn-lg mb-2 w-100" disabled>Em breve</button>
                     {% endif %}

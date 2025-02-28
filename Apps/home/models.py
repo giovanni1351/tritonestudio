@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.functions import Now
 from django.utils.text import slugify
 # Create your models here.
 
@@ -6,6 +7,31 @@ class Reports(models.Model):
     email = models.EmailField(max_length=254,blank=False,null=False)
     name = models.CharField(max_length=254,blank=False,null=False)
     mensagem = models.TextField(blank=False, null=False)
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name="Data de envio",
+        db_default=Now(),
+    )
+    ip_address = models.GenericIPAddressField(
+        null=True,
+        blank=True,
+        verbose_name="Endereço IP"
+    )
+    is_read = models.BooleanField(
+        default=False,
+        verbose_name="Lida"
+    )
+    class Meta:
+        verbose_name = "Mensagem de Contato"
+        verbose_name_plural = "Mensagens de Contato"
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"{self.name} - {self.email} ({self.created_at.strftime('%d/%m/%Y')})"
+
+    def mark_as_read(self):
+        self.is_read = True
+        self.save()
 
 
 class Game(models.Model):
@@ -15,6 +41,7 @@ class Game(models.Model):
     in_development = models.BooleanField(default=False, verbose_name="Em Desenvolvimento")
     details_url = models.URLField(verbose_name="URL de Detalhes", blank=True, null=True)
     download_url = models.URLField(verbose_name="URL de Download", blank=True, null=True)
+    play_url = models.URLField(verbose_name="URL de Jogar", blank=True, null=True)
     slug = models.SlugField(max_length=100, unique=True, blank=True)
     order = models.IntegerField(default=0, verbose_name="Ordem de Exibição")
 
